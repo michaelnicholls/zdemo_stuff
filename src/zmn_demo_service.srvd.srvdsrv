@@ -1,0 +1,4 @@
+@EndUserText.label: 'demo service'
+define service ZMN_DEMO_SERVICE {
+  expose ZMN_C_VIEW;
+}
