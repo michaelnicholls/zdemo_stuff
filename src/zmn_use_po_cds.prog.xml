@@ -5,6 +5,7 @@
    <PROGDIR>
     <NAME>ZMN_USE_PO_CDS</NAME>
     <DBAPL>S</DBAPL>
+    <DBNA>D$</DBNA>
     <SUBC>1</SUBC>
     <FIXPT>X</FIXPT>
     <LDBNAME>D$S</LDBNAME>
@@ -13,8 +14,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>use the PO CDS view</ENTRY>
-     <LENGTH>19</LENGTH>
+     <ENTRY>use the PO CDS view and raw tables</ENTRY>
+     <LENGTH>34</LENGTH>
     </item>
    </TPOOL>
   </asx:values>
