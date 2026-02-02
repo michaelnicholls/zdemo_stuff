@@ -3,10 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZMN_USE_PO_CDS</NAME>
+    <NAME>ZPRODUCT</NAME>
     <DBAPL>S</DBAPL>
     <SUBC>1</SUBC>
-    <APPL>X</APPL>
     <FIXPT>X</FIXPT>
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
@@ -14,8 +13,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>use the PO CDS view and raw tables</ENTRY>
-     <LENGTH>34</LENGTH>
+     <ENTRY>products</ENTRY>
+     <LENGTH>8</LENGTH>
     </item>
    </TPOOL>
   </asx:values>
