@@ -12,6 +12,8 @@ ZMN_EML access entity via EML
 
 ZMNTAB - table plus some CDS/RAP to show features plus authorizations
 
+ZMNDEMO - Fiori app as a BSP app
+
 If problems during abapGit import 
 ================================= 
 remove existing VANs using /o/IWBEP/REG_VOCAN  
