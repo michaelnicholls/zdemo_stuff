@@ -5,11 +5,13 @@
 *&---------------------------------------------------------------------*
 REPORT zmn_rownumber.
 
-SELECT FROM scarr
-  FIELDS ROW_NUMBER(  ) OVER( ORDER BY carrid ) AS row_count,
+SELECT FROM spfli
+  FIELDS ROW_NUMBER(  ) OVER( ORDER BY carrid,connid )                     AS overall_count,
+         ROW_NUMBER(  ) OVER( PARTITION BY carrid ORDER BY carrid ) AS count_within_carrier,
          carrid,
-         carrname
-  ORDER BY carrid
+         connid
+
+  ORDER BY carrid, connid
   INTO TABLE @DATA(mytab).
 DATA go_alv_table TYPE REF TO cl_salv_table.
 TRY.
