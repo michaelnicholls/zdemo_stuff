@@ -14,6 +14,8 @@ ZAMDP_EXAMPLE and ZUSE_AMDP - use of AMDP
 ZUSE_CTE - using common table expression  
 ZMNDEMO - Fiori app as a BSP app
 
+ZSPFLI view, access control, and program to read the view ZMN_USE_CDS_AC  
+
 If problems during abapGit import 
 ================================= 
 remove existing VANs using /o/IWBEP/REG_VOCAN  
