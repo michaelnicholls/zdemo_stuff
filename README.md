@@ -11,7 +11,7 @@ ZMN_ROWNUMBER - get row_number in SELECT
 ZMN_EML access entity via EML  
 ZMNTAB - table plus some CDS/RAP to show features plus authorizations
 ZAMDP_EXAMPLE and ZUSE_AMDP - use of AMDP  
-ZUSE_CTE - using common table expression 
+ZUSE_CTE - using common table expression  
 ZMNDEMO - Fiori app as a BSP app
 
 If problems during abapGit import 
