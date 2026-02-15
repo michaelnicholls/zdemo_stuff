@@ -1,0 +1,4 @@
+@EndUserText.label: 'employee admin'
+define service ZMN_EMPLOYEE_ADMIN {
+  expose ZMN_C_EMPLOYEE_ADMIN;
+}

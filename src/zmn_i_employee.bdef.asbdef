@@ -1,0 +1,15 @@
+managed implementation in class zbp_mn_i_employee unique;
+strict ( 2 );
+
+define behavior for zmn_i_employee //alias <alias_name>
+persistent table zmn_employee
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field (readonly) agerange, salaryband;
+  field (readonly : update) id;
+}

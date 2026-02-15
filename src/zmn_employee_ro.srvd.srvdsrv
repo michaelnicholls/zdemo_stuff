@@ -1,0 +1,4 @@
+@EndUserText.label: 'employee ro'
+define service ZMN_EMPLOYEE_RO {
+  expose ZMN_C_EMPLOYEE_RO;
+}
