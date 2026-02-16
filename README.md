@@ -18,6 +18,8 @@ ZAMDP_MATERIAL_SEARCH and ZMN_GETMATERIALS - fuzzy search
 
 ZSPFLI view, access control, and program to read the view ZMN_USE_CDS_AC  
 
+ZMN_EMP* - examples of hiding/masking fields  
+
 If problems during abapGit import 
 ================================= 
 remove existing VANs using /o/IWBEP/REG_VOCAN  
