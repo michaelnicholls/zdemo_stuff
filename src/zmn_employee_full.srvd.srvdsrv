@@ -1,0 +1,4 @@
+define service ZMN_EMPLOYEE_FULL {
+  expose ZMN_C_EMPLOYEE_ADMIN;
+  expose ZMN_C_EMPLOYEE_RO;
+}
