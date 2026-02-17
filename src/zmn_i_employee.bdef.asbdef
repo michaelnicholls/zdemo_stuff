@@ -11,7 +11,7 @@ authorization master ( instance )
   update;
   delete;
   field (readonly) agerange, salaryband;
-  field (readonly : update) id;
+  field (readonly : update, mandatory : create) id;
   validation validateSalary on save  { create; update; field salary; }
   validation validateDOB on save  { create; update; field Dob; }
   validation validateName on save  { create; update; field Firstname,Lastname; }

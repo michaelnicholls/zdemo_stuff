@@ -41,6 +41,6 @@ define root view entity zmn_i_employee
 
       @UI.identification: [ { position: 70, label: 'Age range' } ]
       @UI.lineItem: [ { position: 70, label: 'Age range' } ]
-      case when dats_days_between(dats_from_datn(dob, 'INITIAL'), $session.system_date) > 10000 then 'Over 30'
+      case when dats_days_between(dats_from_datn(dob, 'INITIAL'), $session.system_date) > 11000 then 'Over 30'
       else 'Under 30' end as AgeRange
 }

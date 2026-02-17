@@ -17,12 +17,12 @@ CLASS zmn_employee_eml IMPLEMENTATION.
     DATA newemp TYPE TABLE FOR CREATE zmn_i_employee.
 
     " try some different values
-    " interestingly, attempting to store a duplicate does not cause an error
-    DATA(id) = 227.
+
+    DATA(id) = 327.
     DATA(last) = 'Smith'.
     DATA(first) = 'Patricia'.
     DATA(dob) = sy-datum - 10.
-    DATA(sal) = 99000.
+    DATA(sal) = 0.
 
     newemp = VALUE #( ( %cid               = 'new'
                         id                 = id
@@ -35,11 +35,13 @@ CLASS zmn_employee_eml IMPLEMENTATION.
                         %control-Firstname = if_abap_behv=>mk-on
                         %control-Lastname  = if_abap_behv=>mk-on
                         %control-id        = if_abap_behv=>mk-on ) ).
+    out->write( name = |About to create using |
+                data = newemp ).
     MODIFY ENTITY zmn_i_employee
            CREATE FROM newemp
            FAILED DATA(failed).
     IF failed IS NOT INITIAL.
-      out->write( name = 'Failed create'
+      out->write( name = 'Failed to create'
                   data = failed ).
     ELSE.
       COMMIT ENTITIES
@@ -48,7 +50,8 @@ CLASS zmn_employee_eml IMPLEMENTATION.
              FAILED DATA(failed_commit).
 
       IF failed_commit IS NOT INITIAL.
-        out->write( name = 'Failed commit' data = reported_commit ).
+        out->write( name = |Failed to commit|
+                    data = reported_commit ).
       ELSE.
         out->write( |Record added| ).
       ENDIF.
