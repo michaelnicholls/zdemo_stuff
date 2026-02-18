@@ -9,6 +9,8 @@ CLASS lhc_zmn_i_employee DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR zmn_i_employee~validatedob.
     METHODS validatename FOR VALIDATE ON SAVE
       IMPORTING keys FOR zmn_i_employee~validatename.
+    METHODS validateid FOR VALIDATE ON SAVE
+      IMPORTING keys FOR zmn_i_employee~validateid.
 
 ENDCLASS.
 
@@ -18,7 +20,7 @@ CLASS lhc_zmn_i_employee IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validateSalary.
-    READ ENTITY zmn_i_employee FIELDS ( Salary )
+    READ ENTITY  in LOCAL MODE zmn_i_employee  FIELDS ( Salary )
          WITH CORRESPONDING #( keys )
          RESULT DATA(recs).
     LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
@@ -34,7 +36,7 @@ CLASS lhc_zmn_i_employee IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validateDOB.
-    READ ENTITY zmn_i_employee FIELDS ( Dob )
+    READ ENTITY in local mode zmn_i_employee FIELDS ( Dob )
          WITH CORRESPONDING #( keys )
          RESULT DATA(recs).
     LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
@@ -51,7 +53,7 @@ CLASS lhc_zmn_i_employee IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD validateName.
-    READ ENTITY zmn_i_employee FIELDS ( Firstname Lastname )
+    READ ENTITY in local mode zmn_i_employee FIELDS ( Firstname Lastname )
          WITH CORRESPONDING #( keys )
          RESULT DATA(recs).
     LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
@@ -75,4 +77,21 @@ CLASS lhc_zmn_i_employee IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
+  METHOD validateId.
+     READ ENTITY  in LOCAL MODE zmn_i_employee  FIELDS ( id )
+         WITH CORRESPONDING #( keys )
+         RESULT DATA(recs).
+    LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
+     select single @abap_true from zmn_employee   where id = @<rec>-id into @data(already_there).
+      IF <rec>-id <= 0 or already_there = abap_true.
+        APPEND VALUE #( %tky = <rec>-%tky ) TO failed-zmn_i_employee.
+        APPEND VALUE #( %tky            = <rec>-%tky
+                        %msg            = new_message_with_text( severity = if_abap_behv_message=>severity-error
+                                                                 text     = 'Id must be unique and a positive number' )
+                        %element-id = if_abap_behv=>mk-on )
+               TO reported-zmn_i_employee.
+      ENDIF.
+    ENDLOOP.
+  ENDMETHOD.
+
 ENDCLASS.

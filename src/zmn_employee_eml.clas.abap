@@ -18,11 +18,11 @@ CLASS zmn_employee_eml IMPLEMENTATION.
 
     " try some different values
 
-    DATA(id) = 327.
+    DATA(id) = -10.
     DATA(last) = 'Smith'.
     DATA(first) = 'Patricia'.
     DATA(dob) = sy-datum - 10.
-    DATA(sal) = 0.
+    DATA(sal) = 123.
 
     newemp = VALUE #( ( %cid               = 'new'
                         id                 = id

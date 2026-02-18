@@ -15,4 +15,5 @@ authorization master ( instance )
   validation validateSalary on save  { create; update; field salary; }
   validation validateDOB on save  { create; update; field Dob; }
   validation validateName on save  { create; update; field Firstname,Lastname; }
+  validation validateId on save {create; field id; }
 }
