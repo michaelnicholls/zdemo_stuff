@@ -17,7 +17,8 @@ ENDCLASS.
 
 CLASS zamdp_material_search IMPLEMENTATION.
   METHOD find_materials BY DATABASE PROCEDURE FOR HDB LANGUAGE SQLSCRIPT OPTIONS READ-ONLY USING mara makt.
-    et_materials = select mara.matnr as product, mara.matkl as productgroup, makt.maktx as description from mara join makt on mara.matnr = makt.matnr
+    et_materials = select mara.matnr as product, mara.matkl as productgroup, makt.maktx as description from mara
+    join makt on mara.matnr = makt.matnr and mara.mandt = makt.mandt
     where mara.mandt = session_context( 'CLIENT' )
     and makt.spras = SESSION_CONTEXT('LOCALE_SAP')
     and ( contains(mara.matnr, :sounds_like, FUZZY( :fuzziness ) )
