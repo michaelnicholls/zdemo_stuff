@@ -19,4 +19,4 @@ define root view entity zmn_i_cdsparams as select from zmn_cdsparams
     @UI.lineItem: [{ position: 30, label: 'Fuzziness' }]
     @UI.identification: [{ position: 30, label: 'Fuzziness' }]
     fuzziness as Fuzziness
-}
+}  where uname = $session.user

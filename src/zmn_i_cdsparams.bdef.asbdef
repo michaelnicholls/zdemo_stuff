@@ -12,6 +12,7 @@ late numbering
   create ;
   update;
 //  delete;
+validation checkUname on save {create;}
   field (readonly) uname;
 
 }
