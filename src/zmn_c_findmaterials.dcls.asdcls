@@ -1,0 +1,11 @@
+@EndUserText.label: 'linit access'
+@MappingRole: true
+define role ZMN_C_FINDMATERIALS {
+    grant 
+        select
+            on
+                ZMN_C_FINDMATERIALS
+                    where
+                        ( productgroup )  = aspect pfcg_auth(M_MATE_WGR, begru,  ACTVT = '03');
+                        
+}
