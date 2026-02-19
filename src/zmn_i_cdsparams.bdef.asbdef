@@ -1,0 +1,17 @@
+managed implementation in class zbp_mn_i_cdsparams unique;
+strict ( 2 );
+
+define behavior for zmn_i_cdsparams //alias <alias_name>
+persistent table zmn_cdsparams
+lock master
+authorization master ( instance )
+//etag master <field_name>
+
+late numbering
+{
+  create ;
+  update;
+//  delete;
+  field (readonly) uname;
+
+}

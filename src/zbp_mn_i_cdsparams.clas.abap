@@ -1,0 +1,5 @@
+CLASS zbp_mn_i_cdsparams DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zmn_i_cdsparams.
+ENDCLASS.
+
+CLASS zbp_mn_i_cdsparams IMPLEMENTATION.
+ENDCLASS.

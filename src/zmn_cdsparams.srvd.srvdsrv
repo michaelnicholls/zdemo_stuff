@@ -1,0 +1,4 @@
+@EndUserText.label: 'service'
+define service ZMN_CDSPARAMS {
+  expose ZMN_C_CDSPARAMS;
+}
