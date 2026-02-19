@@ -1,0 +1,10 @@
+@EndUserText.label: 'access control'
+@MappingRole: true
+define role ZMN_PRODUCT_SIMPLE {
+    grant 
+        select
+            on
+                ZMN_PRODUCT_SIMPLE
+                    where
+                        ( productgroup )  = aspect pfcg_auth(M_MATE_WGR, begru,  ACTVT = '03');
+}

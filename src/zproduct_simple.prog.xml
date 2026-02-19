@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZPRODUCT</NAME>
+    <NAME>ZPRODUCT_SIMPLE</NAME>
     <DBAPL>S</DBAPL>
     <DBNA>D$</DBNA>
     <SUBC>1</SUBC>
@@ -14,8 +14,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>reading i_product</ENTRY>
-     <LENGTH>17</LENGTH>
+     <ENTRY>reading simple view on i_product</ENTRY>
+     <LENGTH>32</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

@@ -3,16 +3,12 @@
 *&---------------------------------------------------------------------*
 *&
 *&---------------------------------------------------------------------*
-REPORT zproduct.
+REPORT zproduct_simple.
 
-SELECT FROM I_Product
+SELECT FROM zmn_product_simple
   FIELDS Product,
          ProductGroup,
-   "      \_text[ MANY TO ONE WHERE language = @sy-langu ]-ProductName            AS desc1, " using logon language
-   "      coalesce( \_text[ MANY TO ONE WHERE language = @sy-langu ]-ProductName,
-   "         'No description found' )                                             AS desc2, " hardcoded if no value
-         coalesce( \_text[ MANY TO ONE WHERE language = @sy-langu ]-ProductName,
-             \_text[ MANY TO ONE WHERE language = 'E' ]-ProductName )            AS desc3 " use E if no description
+    description
   ORDER BY Product
   INTO TABLE @DATA(mytab)
   UP TO 100 ROWS.
