@@ -1,0 +1,4 @@
+@EndUserText.label: 'service'
+define service ZMN_FINDMATERIALS2 {
+  expose ZMN_C_FINDMATERIALS2;
+}

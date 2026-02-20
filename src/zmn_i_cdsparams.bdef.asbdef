@@ -9,7 +9,7 @@ authorization master ( global )
 
 late numbering
 {
-  create ;
+  create (features: global);
   update;
 //  delete;
 validation checkUname on save {create;}

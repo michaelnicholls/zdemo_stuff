@@ -30,6 +30,8 @@ CLASS lhc_zmn_i_cdsparams DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR zmn_i_cdsparams~checkuname.
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR zmn_i_cdsparams RESULT result.
+    METHODS get_global_features FOR GLOBAL FEATURES
+      IMPORTING REQUEST requested_features FOR zmn_i_cdsparams RESULT result.
 
 ENDCLASS.
 
@@ -66,9 +68,16 @@ CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
   "  IF requested_authorizations-%create = if_abap_behv=>mk-on.
       SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
       IF exists = abap_true.
-        result-%create = if_abap_behv=>auth-unauthorized.
+        result-%create = if_abap_behv=>fc-o-disabled.
       ENDIF.
    " ENDIF.
+  ENDMETHOD.
+
+  METHOD get_global_features.
+     SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
+      IF exists = abap_true.
+        result-%create = if_abap_behv=>auth-unauthorized.
+      ENDIF.
   ENDMETHOD.
 
 ENDCLASS.

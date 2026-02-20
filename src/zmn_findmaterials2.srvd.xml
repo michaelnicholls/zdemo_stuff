@@ -3,12 +3,12 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <SRVD>
-    <NAME>ZMN_PRODUCT_SIMPLE</NAME>
+    <NAME>ZMN_FINDMATERIALS2</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <DESCRIPTION>simple product details from i_product</DESCRIPTION>
+    <DESCRIPTION>service</DESCRIPTION>
     <LANGUAGE>EN</LANGUAGE>
     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
-    <SOURCE_URI>./zmn_product_simple/source/main</SOURCE_URI>
+    <SOURCE_URI>./zmn_findmaterials2/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>
     <SOURCE_ORIGIN_DESCRIPTION>ABAP Development Tools</SOURCE_ORIGIN_DESCRIPTION>
     <SRVD_SOURCE_TYPE>S</SRVD_SOURCE_TYPE>

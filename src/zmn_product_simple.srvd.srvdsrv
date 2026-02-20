@@ -1,4 +1,4 @@
 @EndUserText.label: 'simple product details'
 define service ZMN_PRODUCT_SIMPLE {
-  expose zmn_product_simple;
+  expose ZMN_PRODUCT_SIMPLE;
 }
