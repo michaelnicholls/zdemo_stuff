@@ -23,7 +23,8 @@ CLASS zcl_tablefunc_mat2 IMPLEMENTATION.
    select count(*) into numrecs from zmn_cdsparams where uname = session_context( 'APPLICATIONUSER' ) and
        client = session_context( 'CLIENT' );
    if :numrecs > 0 then
-    select soundslike,fuzziness into soundslike, fuzziness from zmn_cdsparams where uname = session_context( 'APPLICATIONUSER' );
+    select soundslike,fuzziness into soundslike, fuzziness from zmn_cdsparams where uname = session_context( 'APPLICATIONUSER' )
+    and client = session_context( 'CLIENT' ) ;
     end if;
     return
 
