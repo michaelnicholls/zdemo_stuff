@@ -20,7 +20,8 @@ CLASS zcl_tablefunc_mat2 IMPLEMENTATION.
    declare soundslike nvarchar( 30 );
    declare fuzziness float;
    declare numrecs integer;
-   select count(*) into numrecs from zmn_cdsparams where uname = session_context( 'APPLICATIONUSER' );
+   select count(*) into numrecs from zmn_cdsparams where uname = session_context( 'APPLICATIONUSER' ) and
+       client = session_context( 'CLIENT' );
    if :numrecs > 0 then
     select soundslike,fuzziness into soundslike, fuzziness from zmn_cdsparams where uname = session_context( 'APPLICATIONUSER' );
     end if;

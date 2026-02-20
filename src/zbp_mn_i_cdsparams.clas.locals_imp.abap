@@ -24,20 +24,21 @@ ENDCLASS.
 CLASS lhc_zmn_i_cdsparams DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
-    METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
-      IMPORTING keys REQUEST requested_authorizations FOR zmn_i_cdsparams RESULT result.
+*    METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
+*      IMPORTING keys REQUEST requested_authorizations FOR zmn_i_cdsparams RESULT result.
     METHODS checkuname FOR VALIDATE ON SAVE
       IMPORTING keys FOR zmn_i_cdsparams~checkuname.
+    METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
+      IMPORTING REQUEST requested_authorizations FOR zmn_i_cdsparams RESULT result.
 
 ENDCLASS.
 
 CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
 
-  METHOD get_instance_authorizations.
-
-
-
-  ENDMETHOD.
+*  METHOD get_instance_authorizations.
+*
+*
+*  ENDMETHOD.
 
 
   METHOD checkUname.
@@ -59,6 +60,15 @@ CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
 
 
 
+  ENDMETHOD.
+
+  METHOD get_global_authorizations.
+  "  IF requested_authorizations-%create = if_abap_behv=>mk-on.
+      SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
+      IF exists = abap_true.
+        result-%create = if_abap_behv=>auth-unauthorized.
+      ENDIF.
+   " ENDIF.
   ENDMETHOD.
 
 ENDCLASS.

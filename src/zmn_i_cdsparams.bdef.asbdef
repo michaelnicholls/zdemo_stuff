@@ -4,7 +4,7 @@ strict ( 2 );
 define behavior for zmn_i_cdsparams //alias <alias_name>
 persistent table zmn_cdsparams
 lock master
-authorization master ( instance )
+authorization master ( global )
 //etag master <field_name>
 
 late numbering
