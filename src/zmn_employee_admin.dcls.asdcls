@@ -1,0 +1,11 @@
+@EndUserText.label: 'access'
+@MappingRole: true
+define role ZMN_EMPLOYEE_ADMIN {
+    grant 
+        select
+            on
+                ZMN_I_EMPLOYEE_FULL
+                    where
+                        ( adminflag ) = aspect pfcg_auth(ZEMP_ADMIN, CONF_FLAG);
+                        
+}

@@ -1,0 +1,11 @@
+@EndUserText.label: 'employee admin'
+@MappingRole: true
+define role ZMN_C_EMPLOYEE_ADMIN {
+    grant
+        select
+            on
+                ZMN_C_EMPLOYEE_FULL_ADMIN
+                    where
+                        inheriting conditions from entity ZMN_I_EMPLOYEE_FULL;
+                        
+}
