@@ -26,7 +26,8 @@ define root view entity zmn_i_cdsparams
       fuzziness                as Fuzziness,
 /////// navigation below //////
       @Consumption.semanticObject: 'demo'
-      @UI.lineItem: [ { position: 40, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showmaterials' } ]
+       @UI.identification: [ { position: 40} ]
+       @UI.lineItem: [ { position: 40, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showmaterials' } ]
       'see matching materials' as go_tolist
 }
 
