@@ -30,7 +30,7 @@ left outer join zmn_cdsparams on zmn_cdsparams.uname = $session.user
     sflight.seatsmax_f as SeatsmaxF,
     @UI.lineItem: [{ position: 120 }]
     sflight.seatsocc_f as SeatsoccF
-} where sflight.fldate between 
+} where zmn_cdsparams.uname = $session.user and  sflight.fldate between 
 coalesce(zmn_cdsparams.start_date,dats_add_days($session.system_date, -30,'INITIAL')) and 
 coalesce(zmn_cdsparams.end_date,$session.system_date)
 

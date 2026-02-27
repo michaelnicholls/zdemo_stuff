@@ -4,7 +4,9 @@
 *&
 *&---------------------------------------------------------------------*
 REPORT zmn_read_filtered.
-
+select count(*) from zmn_filtered_flights into @data(c1).
+ select count(*) from zmn_c_cdsparams into @data(c2).
+   write: c1, c2.
 select from zmn_filtered_flights fields * into table @data(mytab).
 DATA go_alv_table TYPE REF TO cl_salv_table.
 TRY.
