@@ -24,10 +24,16 @@ define root view entity zmn_i_cdsparams
       @UI.identification: [ { position: 30, label: 'Fuzziness' } ]
       @UI.lineItem: [ { position: 30, label: 'Fuzziness' } ]
       fuzziness                as Fuzziness,
+      @UI.identification: [ { position: 40, label: 'Start date' } ]
+      @UI.lineItem: [ { position: 40, label: 'Start date' } ]
+      start_date,
+      @UI.identification: [ { position: 50, label: 'End date' } ]
+      @UI.lineItem: [ { position: 50, label: 'End date' } ]
+      end_date,
 /////// navigation below //////
       @Consumption.semanticObject: 'demo'
-       @UI.identification: [ { position: 40} ]
-       @UI.lineItem: [ { position: 40, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showmaterials' } ]
+       @UI.identification: [ { position: 80} ]
+       @UI.lineItem: [ { position: 80, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showmaterials' } ]
       'see matching materials' as go_tolist
 }
 
