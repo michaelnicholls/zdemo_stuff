@@ -1,0 +1,4 @@
+@EndUserText.label: 'filtered'
+define service ZMN_FILTEREDFLIGHTS {
+  expose ZMN_C_FILTEREDFLIGHTS;
+}
