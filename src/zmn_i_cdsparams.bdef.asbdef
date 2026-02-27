@@ -13,6 +13,8 @@ late numbering
   update;
 //  delete;
 validation checkUname on save {create;}
+validation checkDate on save {create;update;}
+
   field (readonly) uname;
 
 }
