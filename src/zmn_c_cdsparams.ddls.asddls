@@ -8,6 +8,7 @@ define root view entity ZMN_C_CDSPARAMS as projection on zmn_i_cdsparams
     Soundslike,
     Fuzziness,
     start_date,
-    end_date,
-    go_tolist
+    end_date ,
+    goto_material_list,
+    goto_flight_list
 }

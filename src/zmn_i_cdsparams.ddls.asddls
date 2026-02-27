@@ -32,9 +32,14 @@ define root view entity zmn_i_cdsparams
       end_date,
 /////// navigation below //////
       @Consumption.semanticObject: 'demo'
-       @UI.identification: [ { position: 80} ]
-       @UI.lineItem: [ { position: 80, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showmaterials' } ]
-      'see matching materials' as go_tolist
+       @UI.identification: [ { position: 100} ]
+       @UI.lineItem: [ { position: 100, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showmaterials' } ]
+      'see matching materials' as goto_material_list,
+            @Consumption.semanticObject: 'demo'
+       @UI.identification: [ { position: 110} ]
+       @UI.lineItem: [ { position: 110, type: #WITH_INTENT_BASED_NAVIGATION, semanticObjectAction: 'showflights' } ]
+      'see matching flights' as goto_flight_list
+      
 }
 
 where uname = $session.user
