@@ -19,5 +19,7 @@ left outer join zmn_cdsparams on zmn_cdsparams.uname = $session.user
     sflight.seatsmax_f as SeatsmaxF,
     sflight.seatsocc_f as SeatsoccF
 } where sflight.fldate between 
-coalesce(zmn_cdsparams.start_date,'20250101') and 
-coalesce(zmn_cdsparams.end_date,'20260101')
+coalesce(zmn_cdsparams.start_date,dats_add_days($session.system_date, -30,'INITIAL')) and 
+coalesce(zmn_cdsparams.end_date,$session.system_date)
+
+// default to the last 30 days
