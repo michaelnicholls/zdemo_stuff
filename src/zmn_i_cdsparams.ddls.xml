@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZMN_I_CDSPARAMS</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>params</DDTEXT>
+    <DDTEXT>all cds params</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

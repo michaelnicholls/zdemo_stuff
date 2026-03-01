@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLS>
-    <DDLNAME>ZMN_C_CDSPARAMS</DDLNAME>
+    <DDLNAME>ZMN_C_CDSPARAMS_FLIGHT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>params for fuzzy search</DDTEXT>
     <SOURCE_TYPE>P</SOURCE_TYPE>
