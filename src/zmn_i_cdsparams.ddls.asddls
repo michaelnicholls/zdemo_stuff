@@ -31,9 +31,13 @@ define root view entity zmn_i_cdsparams
       @UI.lineItem: [ { position: 50, label: 'End date' } ]
       
       end_date,
-      @UI.lineItem: [ { position: 50, type: #FOR_ACTION, dataAction: 'setToday', label: 'Set today' }]
+      @UI.identification: [ { position: 60, label: 'Currency' } ]
+      @UI.lineItem: [ { position:60 , label: 'Currency' } ]
+      @Consumption.valueHelpDefinition: [{ entity: {name: 'I_CurrencyStdVH', element: 'Currency' }, useForValidation: true }]
+      currency,
+      @UI.lineItem: [ { position: 90, type: #FOR_ACTION, dataAction: 'setToday', label: 'Set today' }]
       '' as action_today,
-           @UI.lineItem: [ { position: 53, type: #FOR_ACTION, dataAction: 'adjust', label: 'Adjust start and end' }]
+           @UI.lineItem: [ { position: 91, type: #FOR_ACTION, dataAction: 'adjust', label: 'Adjust start and end' }]
       '' as action_adjust,
       
 /////// navigation below //////
