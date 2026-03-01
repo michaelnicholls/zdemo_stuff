@@ -15,6 +15,10 @@ late numbering
 validation checkUname on save {create;}
 validation checkDate on save {create;update;}
 
-  field (readonly) uname;
+action setToday;
+
+action adjust parameter zmn_date_adjust;
+
+  field (readonly) uname,goto_flight_list, goto_material_list;
 
 }

@@ -9,13 +9,13 @@ ENDCLASS.
 CLASS lsc_zmn_i_cdsparams IMPLEMENTATION.
 
   METHOD adjust_numbers.
-    loop at mapped-zmn_i_cdsparams asSIGNING FIELD-SYMBOL(<rec>).
-   select single  @abap_true from zmn_cdsparams into @data(exists) where uname = @sy-uname.
-   if exists = abap_false.
-    <rec>-Uname = sy-uname.
+    LOOP AT mapped-zmn_i_cdsparams ASSIGNING FIELD-SYMBOL(<rec>).
+      SELECT SINGLE  @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
+      IF exists = abap_false.
+        <rec>-Uname = sy-uname.
 
-    endif.
-     endloop.
+      ENDIF.
+    ENDLOOP.
 
   ENDMETHOD.
 
@@ -34,6 +34,10 @@ CLASS lhc_zmn_i_cdsparams DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING REQUEST requested_features FOR zmn_i_cdsparams RESULT result.
     METHODS checkdate FOR VALIDATE ON SAVE
       IMPORTING keys FOR zmn_i_cdsparams~checkdate.
+    METHODS settoday FOR MODIFY
+      IMPORTING keys FOR ACTION zmn_i_cdsparams~settoday.
+      METHODS adjust FOR MODIFY
+      IMPORTING keys FOR ACTION zmn_i_cdsparams~adjust.
 
 ENDCLASS.
 
@@ -47,11 +51,11 @@ CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
 
   METHOD checkUname.
 
-     READ ENTITY  in LOCAL MODE zmn_i_cdsparams  FIELDS ( uname )
-         WITH CORRESPONDING #( keys )
-         RESULT DATA(recs).
+    READ ENTITY  IN LOCAL MODE zmn_i_cdsparams  FIELDS ( uname )
+        WITH CORRESPONDING #( keys )
+        RESULT DATA(recs).
     LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
-    select single  @abap_true from zmn_cdsparams into @data(exists) where uname = @sy-uname.
+      SELECT SINGLE  @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
       IF exists = abap_true.
         APPEND VALUE #( %tky = <rec>-%tky ) TO failed-zmn_i_cdsparams.
         APPEND VALUE #( %tky            = <rec>-%tky
@@ -67,27 +71,27 @@ CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_global_authorizations.
-  "  IF requested_authorizations-%create = if_abap_behv=>mk-on.
-      SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
-      IF exists = abap_true.
-        result-%create = if_abap_behv=>fc-o-disabled.
-      ENDIF.
-   " ENDIF.
+    "  IF requested_authorizations-%create = if_abap_behv=>mk-on.
+    SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
+    IF exists = abap_true.
+      result-%create = if_abap_behv=>fc-o-disabled.
+    ENDIF.
+    " ENDIF.
   ENDMETHOD.
 
   METHOD get_global_features.
-     SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
-      IF exists = abap_true.
-        result-%create = if_abap_behv=>auth-unauthorized.
-      ENDIF.
+    SELECT SINGLE @abap_true FROM zmn_cdsparams INTO @DATA(exists) WHERE uname = @sy-uname.
+    IF exists = abap_true.
+      result-%create = if_abap_behv=>auth-unauthorized.
+    ENDIF.
   ENDMETHOD.
 
   METHOD checkDate.
-     READ ENTITY  in LOCAL MODE zmn_i_cdsparams  FIELDS ( start_date end_date )
-         WITH CORRESPONDING #( keys )
-         RESULT DATA(recs).
+    READ ENTITY  IN LOCAL MODE zmn_i_cdsparams  FIELDS ( start_date end_date )
+        WITH CORRESPONDING #( keys )
+        RESULT DATA(recs).
     LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
-   if <rec>-start_date is initial or <rec>-end_date is initial or ( <rec>-start_date > <rec>-end_date ).
+      IF <rec>-start_date IS INITIAL OR <rec>-end_date IS INITIAL OR ( <rec>-start_date > <rec>-end_date ).
         APPEND VALUE #( %tky = <rec>-%tky ) TO failed-zmn_i_cdsparams.
         APPEND VALUE #( %tky            = <rec>-%tky
                         %msg            = new_message_with_text( severity = if_abap_behv_message=>severity-error
@@ -95,6 +99,63 @@ CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
                         )
                TO reported-zmn_i_cdsparams.
       ENDIF.
+    ENDLOOP.
+  ENDMETHOD.
+
+  METHOD setToday.
+    READ ENTITY IN LOCAL MODE zmn_i_cdsparams FIELDS ( start_date end_date )
+         WITH CORRESPONDING #( keys )
+         RESULT DATA(recs).
+    LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
+      MODIFY ENTITY IN LOCAL MODE zmn_i_cdsparams
+             UPDATE FIELDS
+             ( start_date end_date ) WITH VALUE #(
+                 (  %tky-Uname = <rec>-Uname start_date = sy-datum end_date = sy-datum ) ).
+
+    ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD adjust.
+
+
+    READ ENTITY IN LOCAL MODE zmn_i_cdsparams ALL FIELDS
+         WITH CORRESPONDING #( keys )
+         RESULT DATA(recs).
+
+    LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
+        data(year) = sy-datum(4).
+       " data(month) = sy-datum+4(2).
+        data(nextmonth) = sy-datum+4(2) + 1.
+        if nextmonth > 12. nextmonth = 1. year += 1. endif.
+        data(last) = conv d(  |{ year }{ nextmonth paD = '0' align = right width = 2 }01| )  .
+        last -= 1.
+        LOOP AT keys INTO DATA(ls_adjust).
+        if ls_adjust-%param-range = 'MTD'.
+             <rec>-start_date = |{ sy-datum(6) }01|.
+              <rec>-end_date = sy-datum.
+            ENDIF.
+            IF ls_adjust-%param-range = 'YTD'.
+                <rec>-start_date = |{ sy-datum(4) }0101|.
+                <rec>-end_date = sy-datum.
+            ENDIF.
+            IF ls_adjust-%param-range = 'MONTH'.
+                <rec>-start_date = |{ sy-datum(6) }01|.
+                <rec>-end_date = |{ last }|.
+            ENDIF.
+            IF ls_adjust-%param-range = 'YEAR'.
+                <rec>-start_date = |{ sy-datum(4) }0101|.
+                <rec>-end_date = |{ sy-datum(4) }1231|.
+            ENDIF.
+            <rec>-start_date = <rec>-start_date + ls_adjust-%param-start_adjust.
+            <rec>-end_date = <rec>-end_date + ls_adjust-%param-end_adjust.
+
+        ENDLOOP.
+        MODIFY ENTITY IN LOCAL MODE zmn_i_cdsparams
+             UPDATE FIELDS
+             ( start_date end_date ) WITH VALUE #(
+                 (  %tky-Uname = <rec>-Uname start_date = <rec>-start_date  end_date = <rec>-end_date ) ).
+
     ENDLOOP.
   ENDMETHOD.
 

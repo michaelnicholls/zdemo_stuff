@@ -29,7 +29,13 @@ define root view entity zmn_i_cdsparams
       start_date,
       @UI.identification: [ { position: 50, label: 'End date' } ]
       @UI.lineItem: [ { position: 50, label: 'End date' } ]
+      
       end_date,
+      @UI.lineItem: [ { position: 50, type: #FOR_ACTION, dataAction: 'setToday', label: 'Set today' }]
+      '' as filler_today,
+           @UI.lineItem: [ { position: 53, type: #FOR_ACTION, dataAction: 'adjust', label: 'Adjust start and end' }]
+      '' as filler_adjust,
+      
 /////// navigation below //////
       @Consumption.semanticObject: 'matdemo'
        @UI.identification: [ { position: 100} ]
