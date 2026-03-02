@@ -34,7 +34,7 @@ define root view entity zmn_i_cdsparams
       @UI.identification: [ { position: 60, label: 'Currency' } ]
       @UI.lineItem: [ { position:60 , label: 'Currency' } ]
       @Consumption.valueHelpDefinition: [{ entity: {name: 'I_CurrencyStdVH', element: 'Currency' }, useForValidation: true }]
-      currency,
+      currency_code,
       @UI.lineItem: [ { position: 90, type: #FOR_ACTION, dataAction: 'setToday', label: 'Set today' }]
       '' as action_today,
            @UI.lineItem: [ { position: 91, type: #FOR_ACTION, dataAction: 'adjust', label: 'Adjust start and end' }]
