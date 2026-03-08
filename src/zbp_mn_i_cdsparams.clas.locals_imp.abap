@@ -23,7 +23,6 @@ ENDCLASS.
 
 CLASS lhc_zmn_i_cdsparams DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
-
 *    METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
 *      IMPORTING keys REQUEST requested_authorizations FOR zmn_i_cdsparams RESULT result.
     METHODS checkuname FOR VALIDATE ON SAVE
@@ -34,10 +33,10 @@ CLASS lhc_zmn_i_cdsparams DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING REQUEST requested_features FOR zmn_i_cdsparams RESULT result.
     METHODS checkdate FOR VALIDATE ON SAVE
       IMPORTING keys FOR zmn_i_cdsparams~checkdate.
-    METHODS settoday FOR MODIFY
-      IMPORTING keys FOR ACTION zmn_i_cdsparams~settoday.
-      METHODS adjust FOR MODIFY
-      IMPORTING keys FOR ACTION zmn_i_cdsparams~adjust.
+    METHODS adjust FOR MODIFY
+    IMPORTING keys FOR ACTION zmn_i_cdsparams~adjust RESULT result.
+    METHODS checkdaterangetype FOR VALIDATE ON SAVE
+      IMPORTING keys FOR zmn_i_cdsparams~checkDateRangeType.
 
 ENDCLASS.
 
@@ -102,61 +101,93 @@ CLASS lhc_zmn_i_cdsparams IMPLEMENTATION.
     ENDLOOP.
   ENDMETHOD.
 
-  METHOD setToday.
-    READ ENTITY IN LOCAL MODE zmn_i_cdsparams FIELDS ( start_date end_date )
-         WITH CORRESPONDING #( keys )
-         RESULT DATA(recs).
-    LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
-      MODIFY ENTITY IN LOCAL MODE zmn_i_cdsparams
-             UPDATE FIELDS
-             ( start_date end_date ) WITH VALUE #(
-                 (  %tky-Uname = <rec>-Uname start_date = sy-datum end_date = sy-datum ) ).
-
-    ENDLOOP.
-  ENDMETHOD.
+*  METHOD setToday.
+*    READ ENTITY IN LOCAL MODE zmn_i_cdsparams FIELDS ( start_date end_date )
+*         WITH CORRESPONDING #( keys )
+*         RESULT DATA(recs).
+*    LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
+*      MODIFY ENTITY IN LOCAL MODE zmn_i_cdsparams
+*             UPDATE FIELDS
+*             ( start_date end_date ) WITH VALUE #(
+*                 (  %tky-Uname = <rec>-Uname start_date = sy-datum end_date = sy-datum ) ).
+*
+*    ENDLOOP.
+*  ENDMETHOD.
 
 
   METHOD adjust.
-
-
     READ ENTITY IN LOCAL MODE zmn_i_cdsparams ALL FIELDS
          WITH CORRESPONDING #( keys )
          RESULT DATA(recs).
 
     LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
-        data(year) = sy-datum(4).
-       " data(month) = sy-datum+4(2).
-        data(nextmonth) = sy-datum+4(2) + 1.
-        if nextmonth > 12. nextmonth = 1. year += 1. endif.
-        data(last) = conv d(  |{ year }{ nextmonth paD = '0' align = right width = 2 }01| )  .
-        last -= 1.
-        LOOP AT keys INTO DATA(ls_adjust).
-        if ls_adjust-%param-range = 'MTD'.
-             <rec>-start_date = |{ sy-datum(6) }01|.
-              <rec>-end_date = sy-datum.
-            ENDIF.
-            IF ls_adjust-%param-range = 'YTD'.
-                <rec>-start_date = |{ sy-datum(4) }0101|.
-                <rec>-end_date = sy-datum.
-            ENDIF.
-            IF ls_adjust-%param-range = 'MONTH'.
-                <rec>-start_date = |{ sy-datum(6) }01|.
-                <rec>-end_date = |{ last }|.
-            ENDIF.
-            IF ls_adjust-%param-range = 'YEAR'.
-                <rec>-start_date = |{ sy-datum(4) }0101|.
-                <rec>-end_date = |{ sy-datum(4) }1231|.
-            ENDIF.
-            <rec>-start_date = <rec>-start_date + ls_adjust-%param-start_adjust.
-            <rec>-end_date = <rec>-end_date + ls_adjust-%param-end_adjust.
+      DATA(year) = sy-datum(4).
+      " data(month) = sy-datum+4(2).
+      DATA(nextmonth) = sy-datum+4(2) + 1.
+      IF nextmonth > 12.
+        nextmonth = 1.
+        year += 1.
+      ENDIF.
+      DATA(last) = CONV d( |{ year }{ nextmonth PAD = '0' ALIGN = RIGHT WIDTH = 2 }01| ).
+      last -= 1.
+        IF <rec>-date_rules = 'TODAY'.
+          <rec>-start_date = sy-datum.
+          <rec>-end_date   = sy-datum.
+        ENDIF.
+        IF <rec>-date_rules = 'ALL'.
+          <rec>-start_date = '18000101'.
+          <rec>-end_date   = '99991231'.
+        ENDIF.
 
-        ENDLOOP.
-        MODIFY ENTITY IN LOCAL MODE zmn_i_cdsparams
+        IF <rec>-date_rules = 'MTD'.
+          <rec>-start_date = |{ sy-datum(6) }01|.
+          <rec>-end_date   = sy-datum.
+        ENDIF.
+        IF <rec>-date_rules = 'YTD'.
+          <rec>-start_date = |{ sy-datum(4) }0101|.
+          <rec>-end_date   = sy-datum.
+        ENDIF.
+        IF <rec>-date_rules = 'MONTH'.
+          <rec>-start_date = |{ sy-datum(6) }01|.
+          <rec>-end_date   = |{ last }|.
+        ENDIF.
+        IF <rec>-date_rules = 'YEAR'.
+          <rec>-start_date = |{ sy-datum(4) }0101|.
+          <rec>-end_date   = |{ sy-datum(4) }1231|.
+        ENDIF.
+
+  "    ENDLOOP.
+      MODIFY ENTITY IN LOCAL MODE zmn_i_cdsparams
              UPDATE FIELDS
              ( start_date end_date ) WITH VALUE #(
                  (  %tky-Uname = <rec>-Uname start_date = <rec>-start_date  end_date = <rec>-end_date ) ).
 
     ENDLOOP.
+    result = VALUE #( FOR rec IN recs (
+      %tky = rec-%tky
+      %param = rec ) ).
+  ENDMETHOD.
+
+
+
+
+  METHOD checkdaterangetype.
+     READ ENTITY  IN LOCAL MODE zmn_i_cdsparams  FIELDS ( date_rules )
+        WITH CORRESPONDING #( keys )
+        RESULT DATA(recs).
+    LOOP AT recs ASSIGNING FIELD-SYMBOL(<rec>).
+        select single * from zmn_date_range_vh where Value = @<rec>-date_rules into @data(x).
+      IF sy-subrc <> 0.
+        APPEND VALUE #( %tky = <rec>-%tky ) TO failed-zmn_i_cdsparams.
+        APPEND VALUE #( %tky            = <rec>-%tky
+                        %msg            = new_message_with_text( severity = if_abap_behv_message=>severity-error
+                                                                 text     = 'Please select a valid rule' )
+                        )
+               TO reported-zmn_i_cdsparams.
+      ENDIF.
+    ENDLOOP.
+
+
   ENDMETHOD.
 
 ENDCLASS.

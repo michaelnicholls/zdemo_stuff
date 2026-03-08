@@ -6,6 +6,6 @@ define behavior for ZMN_C_CDSPARAMS_flight //alias <alias_name>
   use create;
   use update;
 
-  use action setToday;
+ // use action setToday;
   use action adjust;
 }

@@ -1,15 +1,13 @@
-managed implementation in class zbp_mn_i_view unique;
+unmanaged implementation in class zbp_mn_i_view unique;
 strict ( 2 );
 
-define behavior for zmn_i_view
-persistent table zmntab
+define behavior for ZMN_I_VIEW //alias <alias_name>
+//late numbering
 lock master
-authorization master ( global, instance )
+authorization master ( instance )
 //etag master <field_name>
 {
-  field ( readonly : update ) id;
   create;
-  update (features : instance);
-  delete (features : instance);
-  action (features : instance ) myaction;
+  update;
+  delete;
 }

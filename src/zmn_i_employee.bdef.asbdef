@@ -1,8 +1,8 @@
-managed implementation in class zbp_mn_i_employee unique;
+unmanaged implementation in class zbp_mn_i_employee unique;
 strict ( 2 );
 
 define behavior for zmn_i_employee //alias <alias_name>
-persistent table zmn_employee
+//late numbering
 lock master
 authorization master ( instance )
 //etag master <field_name>
@@ -10,10 +10,4 @@ authorization master ( instance )
   create;
   update;
   delete;
-  field (readonly) agerange, salaryband;
-  field (readonly : update, mandatory : create) id;
-  validation validateSalary on save  { create; update; field salary; }
-  validation validateDOB on save  { create; update; field Dob; }
-  validation validateName on save  { create; update; field Firstname,Lastname; }
-  validation validateId on save {create; field id; }
 }

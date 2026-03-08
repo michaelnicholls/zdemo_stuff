@@ -5,19 +5,12 @@
    <PROGDIR>
     <NAME>ZPRODUCT</NAME>
     <DBAPL>S</DBAPL>
-    <DBNA>D$</DBNA>
     <SUBC>1</SUBC>
+    <APPL>X</APPL>
     <FIXPT>X</FIXPT>
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL>
-    <item>
-     <ID>R</ID>
-     <ENTRY>reading i_product</ENTRY>
-     <LENGTH>17</LENGTH>
-    </item>
-   </TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

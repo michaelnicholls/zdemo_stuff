@@ -4,18 +4,13 @@
   <asx:values>
    <PROGDIR>
     <NAME>ZMN_USE_CDS_AC</NAME>
+    <DBAPL>S</DBAPL>
     <SUBC>1</SUBC>
-    <RLOAD>E</RLOAD>
+    <APPL>X</APPL>
     <FIXPT>X</FIXPT>
+    <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL>
-    <item>
-     <ID>R</ID>
-     <ENTRY>using CDS access control</ENTRY>
-     <LENGTH>24</LENGTH>
-    </item>
-   </TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

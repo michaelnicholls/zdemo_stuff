@@ -1,11 +1,13 @@
-projection;
-strict ( 2 );
+unmanaged implementation in class zbp_mn_c_view unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
 
-define behavior for zmn_c_view //alias <alias_name>
+define behavior for ZMN_C_VIEW //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
 {
-  use create;
-  use update;
-  use delete;
-
-  use action myaction;
+  create;
+  update;
+  delete;
 }

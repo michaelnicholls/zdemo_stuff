@@ -6,17 +6,11 @@
     <NAME>ZUSE_AMDP</NAME>
     <DBAPL>S</DBAPL>
     <SUBC>1</SUBC>
+    <APPL>X</APPL>
     <FIXPT>X</FIXPT>
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL>
-    <item>
-     <ID>R</ID>
-     <ENTRY>use amdp</ENTRY>
-     <LENGTH>8</LENGTH>
-    </item>
-   </TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

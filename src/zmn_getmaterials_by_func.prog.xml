@@ -5,19 +5,12 @@
    <PROGDIR>
     <NAME>ZMN_GETMATERIALS_BY_FUNC</NAME>
     <DBAPL>S</DBAPL>
-    <DBNA>D$</DBNA>
     <SUBC>1</SUBC>
+    <APPL>X</APPL>
     <FIXPT>X</FIXPT>
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL>
-    <item>
-     <ID>R</ID>
-     <ENTRY>get materials via func</ENTRY>
-     <LENGTH>22</LENGTH>
-    </item>
-   </TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>
