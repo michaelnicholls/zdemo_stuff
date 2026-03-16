@@ -1,0 +1,11 @@
+@EndUserText.label: 'odata example'
+@MappingRole: true
+define role Z_C_EMPLOYEE {
+    grant
+        select
+            on
+                Z_C_EMPLOYEE
+                    where
+                        inheriting conditions from entity z_i_employee;
+                        
+}

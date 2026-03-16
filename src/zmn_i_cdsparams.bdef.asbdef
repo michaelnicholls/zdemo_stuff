@@ -1,25 +1,13 @@
-managed implementation in class zbp_mn_i_cdsparams unique;
+unmanaged implementation in class zbp_mn_i_cdsparams unique;
 strict ( 2 );
 
 define behavior for zmn_i_cdsparams //alias <alias_name>
-persistent table zmn_cdsparams
+//late numbering
 lock master
-authorization master ( global )
+authorization master ( instance )
 //etag master <field_name>
-
-late numbering
 {
-  create (features: global);
+  create;
   update;
-//  delete;
-validation checkUname on save {create;}
-validation checkDate on save {create;update;}
-validation checkDateRangeType on save {create;update;}
-
-//action setToday;
-
-action adjust result [1] $self;
-
-  field (readonly) uname,goto_flight_list, goto_material_list;
-
+  delete;
 }

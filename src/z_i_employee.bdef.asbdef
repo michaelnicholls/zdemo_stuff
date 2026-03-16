@@ -1,0 +1,16 @@
+managed implementation in class zbp_i_employee unique;
+strict ( 2 );
+
+define behavior for z_i_employee //alias <alias_name>
+persistent table zmn_employee
+lock master
+authorization master (  instance )
+
+//etag master <field_name>
+{
+field ( readonly : update) id;
+  create ( precheck) ;
+  update ;
+  delete ;
+
+}

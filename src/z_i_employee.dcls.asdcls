@@ -1,0 +1,10 @@
+@MappingRole: true
+define role Z_I_EMPLOYEE {
+    grant 
+        select
+        on      Z_I_EMPLOYEE
+        where
+           (companycode) = 
+aspect pfcg_auth(M_MATE_BUK, BUKRS, ACTVT = '03');
+                        
+}

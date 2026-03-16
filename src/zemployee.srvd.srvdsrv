@@ -1,0 +1,4 @@
+@EndUserText.label: 'odata auth example'
+define service Zemployee {
+  expose z_c_employee;
+}
