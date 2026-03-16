@@ -1,0 +1,73 @@
+DATE                                              20260315                                          222012
+RELEASE                                           758
+LOADED_AGRS                                       ZDEMO
+AGR_DEFINE                                        100ZDEMO                                                       TRAIN-00    20260315102317000000000000000TRAIN-00    20260315103016000000000000000
+AGR_TCODES                                        100ZDEMO                         TR/IWFND/GW_CLIENT                                 X 00000
+AGR_1250                                          100ZDEMO                         000006S_GW_OP   __________00    S  O000000
+AGR_1250                                          100ZDEMO                         000007S_SERVICE __________00    S  O000000
+AGR_1250                                          100ZDEMO                         000008S_TABU_NAM__________00    S  O000000
+AGR_1250                                          100ZDEMO                         000009S_TCODE   __________00    S  O000000
+AGR_1250                                          100ZDEMO                         000001/IWFND/ADM__________00    S  O000000
+AGR_1250                                          100ZDEMO                         000002M_MATE_BUK__________00    U  O000000
+AGR_1250                                          100ZDEMO                         000003M_MATE_BUK__________01    U  O000000
+AGR_1250                                          100ZDEMO                         000004M_MATE_BUK__________02    U  O000000
+AGR_1250                                          100ZDEMO                         000005M_MATE_BUK__________03    U  O000000
+AGR_1251                                          100ZDEMO                         000012S_GW_OP   __________00    GW_USERCAT                                                                                S  O000000
+AGR_1251                                          100ZDEMO                         000013S_SERVICE __________00    SRV_NAME  54EA82DEE04DB2CFCA0C9552692A53                                                  S  O000000
+AGR_1251                                          100ZDEMO                         000014S_SERVICE __________00    SRV_NAME  9968276356A28160210D78107801E3                                                  S  O000000
+AGR_1251                                          100ZDEMO                         000015S_SERVICE __________00    SRV_TYPE  HT                                                                              S  O000000
+AGR_1251                                          100ZDEMO                         000016S_TABU_NAM__________00    ACTVT                                                                                     S  O000000
+AGR_1251                                          100ZDEMO                         000017S_TABU_NAM__________00    TABLE     /IWBEP/C_SCO                                                                    S  O000000
+AGR_1251                                          100ZDEMO                         000018S_TABU_NAM__________00    TABLE     /IWBEP/I_V4_MSGR                                                                S  O000000
+AGR_1251                                          100ZDEMO                         000019S_TABU_NAM__________00    TABLE     /IWBEP/I_V4_MSRV                                                                S  O000000
+AGR_1251                                          100ZDEMO                         000020S_TABU_NAM__________00    TABLE     /IWBEP/L_V4_CAC                                                                 S  O000000
+AGR_1251                                          100ZDEMO                         000021S_TABU_NAM__________00    TABLE     /IWFND/C_CFIWAT                                                                 S  O000000
+AGR_1251                                          100ZDEMO                         000022S_TABU_NAM__________00    TABLE     /IWFND/C_DFSYAL                                                                 S  O000000
+AGR_1251                                          100ZDEMO                         000023S_TABU_NAM__________00    TABLE     /IWFND/C_MGDEAM                                                                 S  O000000
+AGR_1251                                          100ZDEMO                         000024S_TABU_NAM__________00    TABLE     /IWFND/C_V4_RSAG                                                                S  O000000
+AGR_1251                                          100ZDEMO                         000025S_TABU_NAM__________00    TABLE     /IWFND/I_MED_CTC                                                                S  O000000
+AGR_1251                                          100ZDEMO                         000026S_TCODE   __________00    TCD       /IWFND/GW_CLIENT                                                                S  O000000
+AGR_1251                                          100ZDEMO                         000001/IWFND/ADM__________00    ACTVT     03                                                                              S  O000000
+AGR_1251                                          100ZDEMO                         000002M_MATE_BUK__________00    ACTVT     01                                                                              U  O000000
+AGR_1251                                          100ZDEMO                         000003M_MATE_BUK__________00    BUKRS     1000                                                                            M  O000000
+AGR_1251                                          100ZDEMO                         000004M_MATE_BUK__________01    ACTVT     02                                                                              U  O000000
+AGR_1251                                          100ZDEMO                         000005M_MATE_BUK__________01    BUKRS     2000                                                                            M  O000000
+AGR_1251                                          100ZDEMO                         000006M_MATE_BUK__________02    ACTVT     06                                                                              U  O000000
+AGR_1251                                          100ZDEMO                         000007M_MATE_BUK__________02    BUKRS     6000                                                                            M  O000000
+AGR_1251                                          100ZDEMO                         000008M_MATE_BUK__________03    ACTVT     03                                                                              U  O000000
+AGR_1251                                          100ZDEMO                         000009M_MATE_BUK__________03    BUKRS     3000                                                                            M  O000000
+AGR_1251                                          100ZDEMO                         000010S_GW_OP   __________00    ACTVT                                                                                     S  O000000
+AGR_1251                                          100ZDEMO                         000011S_GW_OP   __________00    GW_OPAREA TESTING                                                                         S  O000000
+AGR_1252                                          100ZDEMO                         000001$BUKRS
+AGR_TEXTS                                         100ZDEMO                         E00000demo
+AGR_FLAGS                                         100ZDEMO                         COLL_AGR  TRAIN-00    20260315102317TRAIN-00    20260315102317
+AGR_FLAGS                                         100ZDEMO                         DEVCLASS  TRAIN-00    20260315102317TRAIN-00    20260315102317
+AGR_FLAGS                                         100ZDEMO                         MASTER_LANTRAIN-00    20260315102317TRAIN-00    20260315102317E
+AGR_FLAGS                                         100ZDEMO                         RESP_USER TRAIN-00    20260315102317TRAIN-00    20260315102317
+AGR_FLAGS                                         100ZDEMO                         FORCE_MIX TRAIN-00    20260315102838TRAIN-00    20260315103015
+AGR_BUFFI                                         100ZDEMO                         00000002WOTSERVICE             9968276356A28160210D78107801E3HT
+AGR_BUFFI                                         100ZDEMO                         00000003WOTSERVICE             54EA82DEE04DB2CFCA0C9552692A53HT
+AGR_HIER                                          100ZDEMO                         0000000200000001 00000010OTSERVICE                                         01                                X                                         0000000000
+AGR_HIER                                          100ZDEMO                         0000000300000001 00000020OTSERVICE                                         01                                X                                         0000000000
+AGR_HIER                                          100ZDEMO                         0000000400000001 00000030TR/IWFND/GW_CLIENT                                01                                X                                         0000000000
+AGR_HIERT                                         100ZDEMO                         E00000002R3TR IWSG ZEMPLOYEE_0001
+AGR_HIERT                                         100ZDEMO                         E00000003R3TR IWSV ZEMPLOYEE                          0001
+AGR_HIERT                                         100ZDEMO                         100000004SAP Gateway ###
+AGR_HIERT                                         100ZDEMO                         300000004SAP Gateway #####
+AGR_HIERT                                         100ZDEMO                         D00000004SAP Gateway Client
+AGR_HIERT                                         100ZDEMO                         E00000004SAP Gateway Client
+AGR_HIERT                                         100ZDEMO                         F00000004Client SAP Gateway
+AGR_HIERT                                         100ZDEMO                         J00000004SAP Gateway ######
+AGR_HIERT                                         100ZDEMO                         M00000004SAP Gateway ###
+AGR_HIERT                                         100ZDEMO                         P00000004Cliente SAP Gateway
+AGR_HIERT                                         100ZDEMO                         R00000004###### SAP Gateway
+AGR_HIERT                                         100ZDEMO                         S00000004Cliente SAP Gateway
+AGR_HIERT                                         100ZDEMO                         #00000004TRAN /IWFND/GW_CLIENT
+AGR_HIERT                                         100ZDEMO                         #00000004[##################################]
+AGR_APPL_VARS                                     100ZDEMO                         HT54EA82DEE04DB2CFCA0C9552692A53X
+AGR_APPL_VARS                                     100ZDEMO                         HT9968276356A28160210D78107801E3X
+AGR_APPL_VARS                                     100ZDEMO                         TR/IWFND/GW_CLIENT              X
+AGR_TIME                                          100ZDEMO                         MENU      TRAIN-00    20260315102450000000000000000TRAIN-00    20260315103005000000000000000
+AGR_TIME                                          100ZDEMO                         VARIANTS  TRAIN-00    20260315102450000000000000000TRAIN-00    20260315103005000000000000000
+AGR_TIME                                          100ZDEMO                         PROFILE   TRAIN-00    20260315102838000000000000000TRAIN-00    20260315103015000000000000000
+AGR_LSD                                           100ZDEMO                                                       E
