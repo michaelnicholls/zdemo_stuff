@@ -5,6 +5,7 @@ define root view entity zmn_i_flights_with_date_range as select from sflight
 join zmn_calc_daterange on zmn_calc_daterange.search_date = sflight.fldate
 {
     @UI.lineItem: [{ position: 10 }]
+    @UI.selectionField: [{position: 20}]
     key sflight.carrid as Carrid,
     @UI.lineItem: [{ position: 20 }]
     key sflight.connid as Connid,
@@ -22,7 +23,7 @@ join zmn_calc_daterange on zmn_calc_daterange.search_date = sflight.fldate
     sflight.seatsocc as Seatsocc,
     @UI.lineItem: [{ position: 90 }]
     sflight.paymentsum as Paymentsum,
-    @UI.lineItem: [{ position: 10 , label: 'Date range'}]
+ //   @UI.lineItem: [{ position: 10 , label: 'Date range'}]
     @EndUserText.label: 'Date range'
     @UI.selectionField: [{position: 10}]
      @Consumption.valueHelpDefinition: [{ entity: {name: 'ZMN_DATE_RANGE_VH', element: 'Value' }}]
