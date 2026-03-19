@@ -11,6 +11,7 @@ define view entity ZMN_DATE_RANGE_VH as select from dd07t
     @UI.hidden: true
     key ddlanguage as language,
    // @UI.hidden: true
+   @EndUserText.label: 'Value'
     domvalue_l as Value,
     @Semantics.text: true
     ddtext as Description

@@ -1,0 +1,4 @@
+@EndUserText.label: 'flights with date range'
+define service ZMN_FLIGHTS_WITH_DATE_RANGE {
+  expose zmn_i_flights_with_date_range;
+}
