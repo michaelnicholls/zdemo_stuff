@@ -6,7 +6,7 @@
         select
             on
                 zspfli
-                    where
+                    where 
                         ( Carrid ) = aspect pfcg_auth(S_CARRID, CARRID,actvt = '03');
                         
  }

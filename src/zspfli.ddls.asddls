@@ -5,6 +5,7 @@
 define view entity zspfli as select from spfli
 {
     @UI.lineItem: [{position: 10}]
+    @UI.selectionField: [{position: 10}]
     key carrid as Carrid,
     @UI.lineItem: [{position: 20}]
     key connid as Connid,
