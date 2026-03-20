@@ -1,0 +1,4 @@
+@EndUserText.label: 'SPFLI'
+define service ZSPFLI {
+  expose zspfli;
+}

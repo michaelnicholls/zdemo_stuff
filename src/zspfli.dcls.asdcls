@@ -1,11 +1,12 @@
-@EndUserText.label: 'access control for ZSPFLI'
-@MappingRole: true
-define role ZSPFLI {
+
+@EndUserText.label: 'access control'
+ @MappingRole: true
+ define role Zspfli {
     grant 
         select
             on
-                ZSPFLI
+                zspfli
                     where
-                        (Carrid) = aspect pfcg_auth(S_CARRID, CARRID, ACTVT = '03');
+                        ( Carrid ) = aspect pfcg_auth(S_CARRID, CARRID,actvt = '03');
                         
-}
+ }

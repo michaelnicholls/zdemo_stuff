@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZSPFLI</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>role</DDTEXT>
+    <DDTEXT>access control</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>
