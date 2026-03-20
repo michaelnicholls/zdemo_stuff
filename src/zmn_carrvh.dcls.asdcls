@@ -1,0 +1,11 @@
+@EndUserText.label: 'access control'
+@MappingRole: true
+define role ZMN_CARRVH {
+    grant 
+        select
+            on
+                ZMN_CARRVH
+                    where
+                        (Carrid) = aspect pfcg_auth(S_CARRID, CARRID, ACTVT = '03');
+                        
+}
