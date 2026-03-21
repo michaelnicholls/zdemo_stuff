@@ -4,6 +4,10 @@
 @Metadata.ignorePropagatedAnnotations: false
 define view entity zspfli as select from spfli
 {
+  
+ 
+    
+    
     @UI.lineItem: [{position: 10}]
     @UI.selectionField: [{position: 10}]
     @Consumption.valueHelpDefinition: [{ entity: {name: 'ZMN_CARRVH', element: 'Carrid'}}]

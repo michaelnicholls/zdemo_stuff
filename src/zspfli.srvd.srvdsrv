@@ -1,4 +1,4 @@
-@EndUserText.label: 'SPFLI'
+@EndUserText.label: 'flight'
 define service ZSPFLI {
   expose zspfli;
 }
