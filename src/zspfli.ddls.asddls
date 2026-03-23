@@ -2,28 +2,26 @@
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'spfli'
 @Metadata.ignorePropagatedAnnotations: false
-define view entity zspfli as select from spfli
+define  root view entity zspfli as select from spfli as s join scarr as c on c.carrid = s.carrid
 {
-  
- 
-    
     
     @UI.lineItem: [{position: 10}]
     @UI.selectionField: [{position: 10}]
     @Consumption.valueHelpDefinition: [{ entity: {name: 'ZMN_CARRVH', element: 'Carrid'}}]
-    key carrid as Carrid,
+    key s.carrid as Carrid,
     @UI.lineItem: [{position: 20}]
-    key connid as Connid,
-    countryfr as Countryfr,
+    key s.connid as Connid,
+    c.carrname as carrname,
+    s.countryfr as Countryfr,
     @UI.lineItem: [{position: 30}]
-    cityfrom as Cityfrom,
-    airpfrom as Airpfrom,
-    countryto as Countryto,
+    s.cityfrom as Cityfrom,
+    s.airpfrom as Airpfrom,
+    s.countryto as Countryto,
     @UI.lineItem: [{position: 40}]
-    cityto as Cityto,
-    airpto as Airpto,
+    s.cityto as Cityto,
+    s.airpto as Airpto,
  //   fltime as Fltime,
-    deptime as Deptime,
-    arrtime as Arrtime
+    s.deptime as Deptime,
+    s.arrtime as Arrtime
  
 }
