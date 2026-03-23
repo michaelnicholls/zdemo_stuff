@@ -18,6 +18,8 @@ and i.Fldate > o.Fldate
     concat(i.Carrid,concat('/',cast(i.Connid as abap.char(4)))) as inbound,
     i.Fldate as retdate,
     i.deptime as retdeptime,
-    dats_days_between( o.Fldate, i.Fldate) as tripdays
+    dats_days_between( o.Fldate, i.Fldate) as tripdays,
+    o.seatsfree as outseatsfree,
+    i.seatsfree as retseatsfree
     
 }

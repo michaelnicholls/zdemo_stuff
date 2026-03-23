@@ -12,6 +12,7 @@ define view entity zmn_future_flights as select from sflight join spfli on sflig
     spfli.airpfrom,
     spfli.airpto,
     spfli.deptime,
-    spfli.arrtime
+    spfli.arrtime,
+    sflight.seatsmax - sflight.seatsocc as seatsfree
 }
   where sflight.fldate > $session.system_date
