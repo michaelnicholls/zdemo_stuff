@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZMN_CARRVH</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>access control</DDTEXT>
+    <DDTEXT>limit carriers in VH</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

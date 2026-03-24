@@ -3,6 +3,7 @@
 {
 "FROM":
 [
+"I_USERPARAMETER_F2200",
 "SCARR",
 "SPFLI"
 ],

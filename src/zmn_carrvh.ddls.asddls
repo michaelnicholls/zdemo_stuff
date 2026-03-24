@@ -1,5 +1,5 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'value help for carriers'
 @Metadata.ignorePropagatedAnnotations: true
 define view entity ZMN_CARRVH as select from scarr
