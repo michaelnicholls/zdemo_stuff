@@ -1,0 +1,4 @@
+@EndUserText.label: 'product with mat group'
+define service ZMN_PRODUCT_MATGRP {
+  expose Zmn_Product_Matgrp;
+}
