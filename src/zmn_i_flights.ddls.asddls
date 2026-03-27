@@ -6,7 +6,7 @@
 
 define root view entity zmn_i_flights
   as select from sflight
-  association to I_UserParameter_F2200 as _params on _params.UserParameter = 'CUR'
+  association to I_UserParameter_F2200 as _params on _params.UserParameter = 'FWS'
 
 {
       @Consumption.valueHelpDefinition: [ { entity: { name: 'ZMN_CARRVH', element: 'Carrid' } } ]
