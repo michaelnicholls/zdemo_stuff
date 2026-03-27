@@ -1,0 +1,4 @@
+@EndUserText.label: 'flights'
+define service ZMN_FLIGHTS {
+  expose zmn_i_flights;
+}
