@@ -7,7 +7,7 @@
      <NAME>ZMN_DEMO_SERVICE</NAME>
      <TYPE>SRVB/SVB</TYPE>
      <DESCRIPTION>demo</DESCRIPTION>
-     <RESPONSIBLE>TRAIN-00</RESPONSIBLE>
+     <RESPONSIBLE>TRAIN-02</RESPONSIBLE>
      <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
     </METADATA>
     <CONTENT>
@@ -28,12 +28,19 @@
           <TYPE>SRVD/SRV</TYPE>
           <NAME>ZMN_DEMO_SERVICE</NAME>
          </SRVD_REF>
+         <BIND_TYPE_DATA>
+          <CONTENT>
+           <ENCODING>base64</ENCODING>
+          </CONTENT>
+         </BIND_TYPE_DATA>
         </item>
        </SERVICE_CONTENT>
       </item>
      </SERVICES>
     </CONTENT>
+    <CONTRACT>C1</CONTRACT>
     <RELEASE_SUPPORTED>true</RELEASE_SUPPORTED>
+    <BINDING_CREATED>true</BINDING_CREATED>
    </SRVB>
   </asx:values>
  </asx:abap>

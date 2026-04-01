@@ -1,0 +1,4 @@
+@EndUserText.label: 'return flights'
+define service ZMN_RETFLIGHTS {
+  expose ZMN_C_RETFLIGHTS;
+}

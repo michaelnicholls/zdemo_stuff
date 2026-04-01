@@ -1,0 +1,6 @@
+projection;
+strict ( 2 );
+
+define behavior for ZMN_C_RETFLIGHTS //alias <alias_name>
+{
+}

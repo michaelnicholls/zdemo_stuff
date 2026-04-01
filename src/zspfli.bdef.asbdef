@@ -1,13 +1,13 @@
-managed implementation in class zbp_spfli unique;
+unmanaged implementation in class zbp_spfli unique;
 strict ( 2 );
 
 define behavior for zspfli //alias <alias_name>
-persistent table spfli
+//late numbering
 lock master
 authorization master ( instance )
 //etag master <field_name>
 {
-//  create;
-//  update;
-//  delete;
+  create;
+  update;
+  delete;
 }

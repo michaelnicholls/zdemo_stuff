@@ -20,8 +20,12 @@ define root view entity zmn_i_flights
       @UI.lineItem: [ { position: 30 } ]
       @UI.selectionField: [ { position: 20 } ]
   key fldate                                                           as Fldate,
+  @UI.lineItem: [{ position: 35, label : 'Free seats' }]
+  @Aggregation.default: #SUM
+  seatsmax - seatsocc as seatsfree,
 
       @UI.lineItem: [ { position: 40 } ]
+       @Aggregation.default: #SUM
       paymentsum                                                           as Paymentsum,
 
       currency                                                         as Currency,
@@ -29,6 +33,7 @@ define root view entity zmn_i_flights
     cast (_params.UserParameterValue as abap.cuky(5)) as repcurr,
       @Semantics.amount.currencyCode: 'repcurr'
       @UI.lineItem: [ { position: 50, label: 'Converted airfare' } ]
+       @Aggregation.default: #SUM
       currency_conversion(amount             => paymentsum,
                           exchange_rate_date => $session.system_date,
                           source_currency    => currency,

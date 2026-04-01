@@ -1,0 +1,13 @@
+managed implementation in class zbp_mn_return_flights unique;
+strict ( 2 );
+
+define behavior for zmn_return_flights //alias <alias_name>
+persistent table sflight
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+//  create;
+//  update;
+//  delete;
+}
