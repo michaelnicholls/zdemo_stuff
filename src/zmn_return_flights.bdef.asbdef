@@ -11,8 +11,6 @@ authorization master ( instance )
 {
 
 action request;
-//  create;
-  update (features : global);
-//  delete;
+
 
 }

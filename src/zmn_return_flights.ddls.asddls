@@ -54,7 +54,7 @@ define root view entity zmn_return_flights
 
       concat(i.Carrid, concat('/', cast(i.Connid as abap.char(4))))                                                     as inboundflight,
 
-      //       @UI.lineItem: [{ position: 80, label: 'Inbound dep time' }]
+      //       @UI.lineItem: [{ position: 80, label: 'Inbound dep time' }] // hidden by default
 
       i.deptime                                                                                                         as inboundtime,
 
@@ -83,5 +83,6 @@ define root view entity zmn_return_flights
                         inline: true,
                         dataAction: 'request',
                         label: 'Request booking' } ]
-      'Request'                                                                                                         as xx
+      'Request'                                                                                                         as xx,
+      'WS99700001' as wfid
 }

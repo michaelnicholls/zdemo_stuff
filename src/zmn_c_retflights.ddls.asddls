@@ -26,5 +26,6 @@ define root view entity ZMN_C_RETFLIGHTS
       outboundfree,
       inboundfree,
       minfreeseats,
-      xx
+      xx,
+      wfid
 }

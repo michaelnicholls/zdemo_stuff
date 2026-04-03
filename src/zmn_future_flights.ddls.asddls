@@ -2,9 +2,12 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'duture floghts'
 @Metadata.ignorePropagatedAnnotations: true
-define view entity zmn_future_flights as select from sflight join spfli on sflight.carrid = spfli.carrid   and sflight.connid = spfli.connid
-  
- 
+
+define view entity zmn_future_flights
+  as select from sflight
+    join  spfli   
+    on sflight.carrid = spfli.carrid and sflight.connid = spfli.connid
+
 {
     key sflight.carrid as Carrid,
     key sflight.connid as Connid,
