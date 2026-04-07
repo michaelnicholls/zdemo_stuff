@@ -1,0 +1,13 @@
+managed implementation in class zbp_mn_i_employee_full unique;
+strict ( 2 );
+
+define behavior for ZMN_I_EMPLOYEE_FULL //alias <alias_name>
+persistent table zmn_employee
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}

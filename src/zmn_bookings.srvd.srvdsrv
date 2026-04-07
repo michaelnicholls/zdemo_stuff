@@ -1,0 +1,4 @@
+@EndUserText.label: 'bookings'
+define service ZMN_BOOKINGS {
+  expose ZMN_BOOKINGS;
+}

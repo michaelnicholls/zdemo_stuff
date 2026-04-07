@@ -3,7 +3,6 @@ strict ( 2 );
 
 define behavior for ZMN_C_RETFLIGHTS //alias <alias_name>
 {
-use action request;
-//use update;
-//use delete;
+
+  use action request;
 }

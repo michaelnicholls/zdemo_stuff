@@ -1,7 +1,7 @@
 projection;
 strict ( 2 );
 
-define behavior for ZMN_C_EMPLOYEE_ADMIN //alias <alias_name>
+define behavior for ZMN_C_EMPLOYEE_FULL_ADMIN //alias <alias_name>
 {
   use create;
   use update;

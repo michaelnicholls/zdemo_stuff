@@ -1,0 +1,4 @@
+@EndUserText.label: 'flights with calculations'
+define service ZMN_CALC_FLIGHTS {
+  expose zmn_flights;
+}
