@@ -4,29 +4,29 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZMN_RETFLIGHTS</NAME>
+     <NAME>ZBOOK_V4</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>retflights</DESCRIPTION>
+     <DESCRIPTION>ZBOOK 4</DESCRIPTION>
      <RESPONSIBLE>TRAIN-02</RESPONSIBLE>
      <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZMN_RETFLIGHTS</NAME>
+      <NAME>ZBOOK_V4</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
-     <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
+     <BIND_TYPE_VERSION>V4</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZMN_RETFLIGHTS</SERVICE_NAME>
+       <SERVICE_NAME>ZBOOK</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <RELEASE_STATE>NOT_RELEASED</RELEASE_STATE>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zmn_retflights</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zbook</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZMN_RETFLIGHTS</NAME>
+          <NAME>ZBOOK</NAME>
          </SRVD_REF>
          <BIND_TYPE_DATA>
           <CONTENT>

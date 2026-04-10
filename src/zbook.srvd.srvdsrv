@@ -1,0 +1,4 @@
+@EndUserText.label: 'ZBOOK'
+define service ZBOOK {
+  expose ZBOOK;
+}
