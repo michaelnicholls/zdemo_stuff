@@ -1,0 +1,9 @@
+projection;
+strict ( 2 );
+
+define behavior for ZMN_C_TAB //alias <alias_name>
+{
+
+  use action set;
+//  use create;
+}

@@ -1,0 +1,16 @@
+managed implementation in class zbp_mn_i_tab unique;
+strict ( 2 );
+
+define behavior for ZMN_I_TAB //alias <alias_name>
+//persistent table zmntab
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+
+    static action set parameter ZMNtab_param ;
+//  create;
+//  update;
+//  delete;
+}
