@@ -17,7 +17,6 @@ modify zmntab from @rec.
 
 
   ENDMETHOD.
-
 ENDCLASS.
 
 CLASS lhc_zmn_i_tab DEFINITION INHERITING FROM cl_abap_behavior_handler.
@@ -38,10 +37,12 @@ CLASS lhc_zmn_i_tab IMPLEMENTATION.
 
   METHOD set.
 
-  loop at keys into data(key).
-     data(name) = key-%param-name.
-    zbp_mn_i_tab=>name = name.
-  endloop.
+  " can be invoked as POST to /sap/opu/odata/sap/ZMNTAB/set?Name='My name is Michael'
+  " where ZMNTAB is the service binding
+    LOOP AT keys INTO DATA(key).
+      DATA(name) = key-%param-name.
+      zbp_mn_i_tab=>name = name.
+    ENDLOOP.
   ENDMETHOD.
 
 ENDCLASS.
