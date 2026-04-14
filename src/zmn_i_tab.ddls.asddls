@@ -5,8 +5,8 @@ define root view entity ZMN_I_TAB as select from zmntab
 {
   
     key id as Id,
-    @UI.lineItem: [{ position: 10, label: 'Name' }]
     name as Name,
+    carrid as Carrid,
     @UI.lineItem: [ { position: 20,
                         type: #FOR_ACTION,
                         

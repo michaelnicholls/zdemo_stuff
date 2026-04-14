@@ -1,4 +1,5 @@
 @EndUserText.label: 'mn tab'
 define service Zmntab {
   expose ZMN_C_TAB;
+  expose ZMN_CARRVH;
 }
