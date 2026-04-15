@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZMN_I_TAB</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>view</DDTEXT>
+    <DDTEXT>extras root view</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

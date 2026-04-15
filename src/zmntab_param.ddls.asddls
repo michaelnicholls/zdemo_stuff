@@ -1,4 +1,4 @@
-@EndUserText.label: 'abstract'
+@EndUserText.label: 'abstract for extras'
 define abstract entity zmntab_param
  
 {

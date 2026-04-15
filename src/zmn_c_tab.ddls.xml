@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZMN_C_TAB</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>view</DDTEXT>
+    <DDTEXT>extras consumption view</DDTEXT>
     <SOURCE_TYPE>P</SOURCE_TYPE>
    </DDLS>
   </asx:values>

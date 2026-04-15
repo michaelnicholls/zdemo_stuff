@@ -3,7 +3,8 @@
 {
 "FROM":
 [
-"SCARR"
+"SCARR",
+"ZMNTAB"
 ],
 "ASSOCIATED":
 [],

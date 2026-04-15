@@ -10,9 +10,9 @@ CLASS lsc_zmn_i_tab IMPLEMENTATION.
 
   METHOD save_modified.
   data rec type zmntab.
-  rec = value #( id = sy-uname
-  name = zbp_mn_i_tab=>name
-  carrid = zbp_mn_i_tab=>carrid ).
+  rec = corRESPONDING #( zbp_mn_i_tab=>setter ).
+  rec-id = sy-uname.
+
 
 modify zmntab from @rec.
 
@@ -38,14 +38,10 @@ CLASS lhc_zmn_i_tab IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD set.
-
-  " can be invoked as POST to /sap/opu/odata/sap/ZMNTAB/set?Name='My name is Michael'
-  " where ZMNTAB is the service binding
+    " can be invoked as POST to /sap/opu/odata/sap/ZMNTAB/set?Name='My name is Michael'
+    " where ZMNTAB is the service binding
     LOOP AT keys INTO DATA(key).
-      DATA(name) = key-%param-name.
-      data(carrid) = key-%param-carrid.
-      zbp_mn_i_tab=>name = name.
-      zbp_mn_i_tab=>carrid = carrid.
+      zbp_mn_i_tab=>setter = CORRESPONDING #( key-%param ).
     ENDLOOP.
   ENDMETHOD.
 
