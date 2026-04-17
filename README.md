@@ -28,26 +28,8 @@ If problems during abapGit import
 remove existing VANs using /o/IWBEP/REG_VOCAN  
 remove old gateway services using /o/iwbep/reg_Service  
 
-# minimal Fiori app framework
+# minimal Fiori app framework based on zip file
 
-There is a zip file, minimal_Fiori_app.zip, with enough files to make a simple Fiori app 
-which is suitable for adding to a Fiori launch pad.  
-
-Unpack the zip file to a new folder.  
-
-Edit Component.js
-
-- replace AAAAAA with a unique application name.
-
-Edit manifest.json
-- replace AAAAAAA with the unique application name
-- replace SSSSSSS with your service binding name
-- replace VVVVVV with your CDS view name
-
-Edit i18n/i18n.properties
-  - replace TTTTTT with your app's title
-  - replace DDDDDD with your app's description
- 
 In SAPGUI, run program /UI5/UI5_REPOSITORY_LOAD and use the option to upload a new SAPUI5 app. Give it a name, and description, and package.  
 
 When finished, use transaction /UI2/FLPAM to add a new technical catalog and include your new Fiori app.  
